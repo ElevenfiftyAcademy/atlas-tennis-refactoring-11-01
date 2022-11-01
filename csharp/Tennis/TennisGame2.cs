@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Tennis
 {
     public class TennisGame2 : ITennisGame
@@ -9,6 +11,11 @@ namespace Tennis
         private string p2res = "";
         private string player1Name;
         private string player2Name;
+
+        private Dictionary<int, string> scoreTable = new Dictionary<int, string>
+        {
+            { 0, "Love" }
+        };
 
         public TennisGame2(string player1Name, string player2Name)
         {
@@ -23,7 +30,7 @@ namespace Tennis
             if (p1point == p2point && p1point < 3)
             {
                 if (p1point == 0)
-                    score = "Love";
+                    score = scoreTable[0];
                 if (p1point == 1)
                     score = "Fifteen";
                 if (p1point == 2)
