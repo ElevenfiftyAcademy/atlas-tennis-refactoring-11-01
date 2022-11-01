@@ -14,7 +14,9 @@ namespace Tennis
 
         private Dictionary<int, string> scoreTable = new Dictionary<int, string>
         {
-            { 0, "Love" }
+            { 0, "Love" },
+            { 1, "Fifteen" },
+            { 2, "Thirty" }
         };
 
         public TennisGame2(string player1Name, string player2Name)
@@ -27,14 +29,11 @@ namespace Tennis
         public string GetScore()
         {
             var score = "";
-            if (p1point == p2point && p1point < 3)
+            bool isNonWinningTie = p1point == p2point && p1point < 3;
+
+            if (isNonWinningTie)
             {
-                if (p1point == 0)
-                    score = scoreTable[0];
-                if (p1point == 1)
-                    score = "Fifteen";
-                if (p1point == 2)
-                    score = "Thirty";
+                score = scoreTable[p1point];
                 score += "-All";
             }
             if (p1point == p2point && p1point > 2)
