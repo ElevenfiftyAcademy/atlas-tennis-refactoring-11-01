@@ -16,7 +16,9 @@ namespace Tennis
         public string GetScore()
         {
             string score;
-            if ((player1Score < 4 && player2Score < 4) && (player1Score + player2Score < 6))
+            var isNotATieOrWin = (player1Score < 4 && player2Score < 4);
+
+            if (isNotATieOrWin && (player1Score + player2Score < 6))
             {
                 string[] scoreNames = { "Love", "Fifteen", "Thirty", "Forty" };
                 score = scoreNames[player1Score];
