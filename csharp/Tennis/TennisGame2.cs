@@ -7,8 +7,8 @@ namespace Tennis
         private int player1Points;
         private int player2Points;
 
-        private string p1res = "";
-        private string p2res = "";
+        private string player1Result = "";
+        private string player2Result = "";
         private string player1Name;
         private string player2Name;
 
@@ -43,51 +43,51 @@ namespace Tennis
             if (player1Points > 0 && player2Points == 0)
             {
                 if (player1Points == 1)
-                    p1res = scoreTable[1];
+                    player1Result = scoreTable[1];
                 if (player1Points == 2)
-                    p1res = scoreTable[2];
+                    player1Result = scoreTable[2];
                 if (player1Points == 3)
-                    p1res = scoreTable[3];
+                    player1Result = scoreTable[3];
 
-                p2res = scoreTable[0];
-                score = p1res + "-" + p2res;
+                player2Result = scoreTable[0];
+                score = player1Result + "-" + player2Result;
             }
             if (player2Points > 0 && player1Points == 0)
             {
                 if (player2Points == 1)
-                    p2res = "Fifteen";
+                    player2Result = "Fifteen";
                 if (player2Points == 2)
-                    p2res = "Thirty";
+                    player2Result = "Thirty";
                 if (player2Points == 3)
-                    p2res = "Forty";
+                    player2Result = scoreTable[3];
 
-                p1res = "Love";
-                score = p1res + "-" + p2res;
+                player1Result = "Love";
+                score = player1Result + "-" + player2Result;
             }
 
             if (player1Points > player2Points && player1Points < 4)
             {
                 if (player1Points == 2)
-                    p1res = "Thirty";
+                    player1Result = "Thirty";
                 if (player1Points == 3)
-                    p1res = "Forty";
+                    player1Result = "Forty";
                 if (player2Points == 1)
-                    p2res = "Fifteen";
+                    player2Result = "Fifteen";
                 if (player2Points == 2)
-                    p2res = "Thirty";
-                score = p1res + "-" + p2res;
+                    player2Result = "Thirty";
+                score = player1Result + "-" + player2Result;
             }
             if (player2Points > player1Points && player2Points < 4)
             {
                 if (player2Points == 2)
-                    p2res = "Thirty";
+                    player2Result = "Thirty";
                 if (player2Points == 3)
-                    p2res = "Forty";
+                    player2Result = "Forty";
                 if (player1Points == 1)
-                    p1res = "Fifteen";
+                    player1Result = "Fifteen";
                 if (player1Points == 2)
-                    p1res = "Thirty";
-                score = p1res + "-" + p2res;
+                    player1Result = "Thirty";
+                score = player1Result + "-" + player2Result;
             }
 
             if (player1Points > player2Points && player2Points >= 3)
