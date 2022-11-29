@@ -17,7 +17,7 @@ namespace Tennis
             { 0, "Love" },
             { 1, "Fifteen" },
             { 2, "Thirty" },
-            { 3, "Fourty"}
+            { 3, "Forty"}
         };
 
         public TennisGame2(string player1Name, string player2Name)
@@ -43,7 +43,7 @@ namespace Tennis
             if (player1Points > 0 && player2Points == 0)
             {
                 if (player1Points == 1)
-                    player1Result = scoreTable[1];
+                    player1Result = scoreTable[player1Points];
                 if (player1Points == 2)
                     player1Result = scoreTable[2];
                 if (player1Points == 3)
