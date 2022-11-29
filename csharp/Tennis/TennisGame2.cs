@@ -42,26 +42,18 @@ namespace Tennis
 
             if (player1Points > 0 && player2Points == 0)
             {
-                if (player1Points == 1)
+                if (player1Points < 4)
                     player1Result = scoreTable[player1Points];
-                if (player1Points == 2)
-                    player1Result = scoreTable[2];
-                if (player1Points == 3)
-                    player1Result = scoreTable[3];
 
-                player2Result = scoreTable[0];
+                player2Result = scoreTable[player2Points];
                 score = player1Result + "-" + player2Result;
             }
             if (player2Points > 0 && player1Points == 0)
             {
-                if (player2Points == 1)
-                    player2Result = "Fifteen";
-                if (player2Points == 2)
-                    player2Result = "Thirty";
-                if (player2Points == 3)
-                    player2Result = scoreTable[3];
+                if (player2Points < 4)
+                    player2Result = scoreTable[player2Points];
 
-                player1Result = "Love";
+                player1Result = scoreTable[player1Points];
                 score = player1Result + "-" + player2Result;
             }
 
