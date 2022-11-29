@@ -40,6 +40,10 @@ namespace Tennis
             if (player1Points == player2Points && player1Points > 2)
                 score = "Deuce";
 
+            if (player1Points == 0)
+            {
+                player1Result = scoreTable[player1Points];
+            }
             if (player1Points > 0 && player2Points == 0)
             {
                 if (player1Points < 4)
