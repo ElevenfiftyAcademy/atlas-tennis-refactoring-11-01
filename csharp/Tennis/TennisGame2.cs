@@ -57,7 +57,6 @@ namespace Tennis
                 if (player2Points < 4)
                     player2Result = scoreTable[player2Points];
 
-                player1Result = scoreTable[player1Points];
                 score = player1Result + "-" + player2Result;
             }
 
