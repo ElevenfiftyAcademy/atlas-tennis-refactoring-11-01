@@ -63,7 +63,7 @@ namespace Tennis
             if (player1Points > player2Points && player1Points < 4)
             {
                 if (player1Points == 2)
-                    player1Result = "Thirty";
+                    player1Result = scoreTable[player1Points];
                 if (player1Points == 3)
                     player1Result = "Forty";
                 if (player2Points == 1)
