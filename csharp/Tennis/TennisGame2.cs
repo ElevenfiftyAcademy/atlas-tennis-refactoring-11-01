@@ -73,14 +73,13 @@ namespace Tennis
             {
                 if (player2Points == 2 || player2Points == 3)
                     player2Result = scoreTable[player2Points];
-                //if (player2Points == 3)
-                //    player2Result = scoreTable[player2Points];player2Points
                 if (player1Points == 1 || player1Points == 2)
                     player1Result = scoreTable[player1Points];
                 score = player1Result + "-" + player2Result;
             }
 
-            if (player1Points > player2Points && player2Points >= 3)
+            bool player1IsWithin1PointOfWinning = player1Points > player2Points && player2Points >= 3;
+            if (player1IsWithin1PointOfWinning)
             {
                 score = "Advantage player1";
             }
