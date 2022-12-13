@@ -25,6 +25,7 @@ namespace Tennis
             this.player1Name = player1Name;
             player1Points = 0;
             this.player2Name = player2Name;
+            player2Points = 0;
         }
 
         public string GetScore()
@@ -90,7 +91,7 @@ namespace Tennis
                 score = "Advantage player2";
             }
 
-            if (player1Points >= 4 && player2Points >= 0 && (player1Points - player2Points) >= 2)
+            if (player1Points >= 4 && (player1Points - player2Points) >= 2)
             {
                 score = "Win for player1";
             }
