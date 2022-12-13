@@ -84,7 +84,8 @@ namespace Tennis
                 score = "Advantage player1";
             }
 
-            if (player2Points > player1Points && player1Points >= 3)
+            bool player2IsWithin1PointOfWinning = player2Points > player1Points && player1Points >= 3;
+            if (player2IsWithin1PointOfWinning)
             {
                 score = "Advantage player2";
             }
