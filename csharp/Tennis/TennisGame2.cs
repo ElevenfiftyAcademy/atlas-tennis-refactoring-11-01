@@ -39,20 +39,14 @@ namespace Tennis
             }
 
 
-            if (player1Points == 0)
-            {
-                player1Result = scoreTable[player1Points];
-            }
-            if (player1Points > 0 && player2Points == 0)
+            if (player1Points > 0 && player1Points < 4 && player2Points == 0)
             {
                 score = SetPlayerScore();
             }
-            if (player2Points > 0 && player1Points == 0)
+            if (player2Points > 0 && player2Points < 4 && player1Points == 0)
             {
-                if (player2Points < 4)
-                    player2Result = scoreTable[player2Points];
+                score = SetPlayerScore();
 
-                score = player1Result + "-" + player2Result;
             }
 
             if (player1Points > player2Points && player1Points < 4)
@@ -112,8 +106,8 @@ namespace Tennis
 
         private string SetPlayerScore()
         {
-            if (player1Points < 4)
-                player1Result = scoreTable[player1Points];
+
+            player1Result = scoreTable[player1Points];
 
             player2Result = scoreTable[player2Points];
             return player1Result + "-" + player2Result;
