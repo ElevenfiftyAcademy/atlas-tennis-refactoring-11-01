@@ -31,15 +31,13 @@ namespace Tennis
         public string GetScore()
         {
             var score = "";
-            bool isNonWinningTie = player1Points == player2Points && player1Points < 3;
+            bool isNonWinningTie = player1Points == player2Points;
 
             if (isNonWinningTie)
             {
-                score = scoreTable[player1Points];
-                score += "-All";
+                score = GetNonWinningTieScore();
             }
-            if (player1Points == player2Points && player1Points > 2)
-                score = "Deuce";
+
 
             if (player1Points == 0)
             {
@@ -47,11 +45,7 @@ namespace Tennis
             }
             if (player1Points > 0 && player2Points == 0)
             {
-                if (player1Points < 4)
-                    player1Result = scoreTable[player1Points];
-
-                player2Result = scoreTable[player2Points];
-                score = player1Result + "-" + player2Result;
+                score = SetPlayerScore();
             }
             if (player2Points > 0 && player1Points == 0)
             {
@@ -102,21 +96,29 @@ namespace Tennis
             return score;
         }
 
-        public void SetP1Score(int number)
+        private string GetNonWinningTieScore()
         {
-            for (int i = 0; i < number; i++)
+            string score;
+            if (player1Points > 2)
+                score = "Deuce";
+            else
             {
-                P1Score();
+                score = scoreTable[player1Points];
+                score += "-All";
             }
+
+            return score;
         }
 
-        public void SetP2Score(int number)
+        private string SetPlayerScore()
         {
-            for (var i = 0; i < number; i++)
-            {
-                P2Score();
-            }
+            if (player1Points < 4)
+                player1Result = scoreTable[player1Points];
+
+            player2Result = scoreTable[player2Points];
+            return player1Result + "-" + player2Result;
         }
+
 
         private void P1Score()
         {
