@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 namespace Tennis
@@ -31,13 +32,18 @@ namespace Tennis
         public string GetScore()
         {
             var score = "";
-            bool isNonWinningTie = player1Points == player2Points;
+            bool isTie = player1Points == player2Points;
 
-            if (isNonWinningTie)
+            if (isTie)
             {
-                score = GetNonWinningTieScore();
+                score = GetTieScore();
+                return score;
             }
 
+            if (Math.Abs(player1Points - player2Points) >= 2 && (player1Points >= 4 || player2Points >= 4))
+            { 
+                return player1Points > player2Points ? "Win for player1" : "Win for player2";
+            }
 
             if (player1Points > 0 && player1Points < 4 && player2Points == 0)
             {
@@ -79,18 +85,10 @@ namespace Tennis
                 score = "Advantage player2";
             }
 
-            if (player1Points >= 4 && (player1Points - player2Points) >= 2)
-            {
-                score = "Win for player1";
-            }
-            if (player2Points >= 4 && (player2Points - player1Points) >= 2)
-            {
-                score = "Win for player2";
-            }
             return score;
         }
 
-        private string GetNonWinningTieScore()
+        private string GetTieScore()
         {
             string score;
             if (player1Points > 2)
